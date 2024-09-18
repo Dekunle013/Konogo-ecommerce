@@ -1,10 +1,13 @@
 import React from 'react'
+import { logo } from '../assets';
 
 function Header() {
   return (
-    <div>
-      
-    </div>
+    <header className='w-full bg-whiteText'>
+      <div>
+        <img src={logo} alt="logo" />
+      </div>
+    </header>
   )
 }
 
