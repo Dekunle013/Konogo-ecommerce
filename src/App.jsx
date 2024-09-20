@@ -7,11 +7,9 @@ function App() {
 
   return (
     <main>
-      <Header />
       <Container>
         <p>Ecommerce</p>
       </Container>
-      <Footer />
     </main>
   )
 }
