@@ -2,6 +2,17 @@ import React, { useState } from 'react'
 import { logo } from '../assets'
 import { IoClose, IoSearchOutline } from 'react-icons/io5'
 import { FiShoppingBag, FiStar, FiUser } from 'react-icons/fi'
+import { FaChevronDown } from 'react-icons/fa'
+import Container from './Container'
+
+const bottomNavigation = [
+  { title: 'Home', link: '/' },
+  { title: 'Shop', link: '/product' },
+  { title: 'Cart', link: '/cart' },
+  { title: 'Orders', link: '/orders' },
+  { title: 'My Account', link: '/profile' },
+  { title: 'Blog', link: '/blog' },
+]
 
 function Header() {
   const [searchText, setSearchText] = useState('')
@@ -35,18 +46,46 @@ function Header() {
           {/* Menu bar */}
           <div className='flex items-center gap-x-6 text-2xl'>
             <FiUser className='hover:text-skyText duration-200 cursor-pointer' />
-            <div className='relative block'>
-              <FiStar className='hover:text-skyText duration-200 cursor-pointer' />
-              <span className='inline-flex items-center justify-center bg-redText text-whiteText absolute -top-1 -right-2 text-[9px] rounded-full w-4 h-4'>0</span>
-            </div>
-            <div className='relative block'>
-              <FiShoppingBag className='hover:text-skyText duration-200 cursor-pointer' />
-              <span className='inline-flex items-center justify-center bg-redText text-whiteText absolute -top-1 -right-2 text-[9px] rounded-full w-4 h-4'>0</span>
-            </div>
+            <IconWithBadge icon={FiStar} count={0} />
+            <IconWithBadge icon={FiShoppingBag} count={0} />
           </div>
         </div>
       </div>
+      
+      <nav className='w-full bg-darkText text-whiteText'>
+        <Container className='py-2 max-w-4xl flex items-center gap-5 justify-between'>
+          <p className='flex items-center gap-1 cursor-pointer'>
+            Select Category <FaChevronDown />
+          </p>
+          {bottomNavigation.map(({ title, link }) => (
+            <NavLink key={title} title={title} link={link} />
+          ))}
+        </Container>
+      </nav>
     </header>
+  )
+}
+
+function IconWithBadge({ icon: Icon, count }) {
+  return (
+    <div className='relative'>
+      <Icon className='hover:text-skyText duration-200 cursor-pointer' />
+      <span className='inline-flex items-center justify-center bg-redText text-whiteText absolute -top-1 -right-2 text-[9px] rounded-full w-4 h-4'>
+        {count}
+      </span>
+    </div>
+  )
+}
+
+function NavLink({ title, link }) {
+  return (
+    <a 
+      href={link}
+      className='uppercase hidden md:inline-flex text-sm font-sm text-whiteText/90 hover:text-whiteText duration-200 relative overflow-hidden group'
+    >
+      {title}
+      <span className='absolute bottom-0 left-0 w-full h-[1px] bg-whiteText transform translate-x-[-105%] group-hover:translate-x-0 transition-transform duration-300'></span>
+    </a>
   )
 }
 
