@@ -4,6 +4,7 @@ import { IoClose, IoSearchOutline } from 'react-icons/io5'
 import { FiShoppingBag, FiStar, FiUser } from 'react-icons/fi'
 import { FaChevronDown } from 'react-icons/fa'
 import Container from './Container'
+import { Link } from 'react-router-dom'
 
 const bottomNavigation = [
   { title: 'Home', link: '/' },
@@ -22,7 +23,9 @@ function Header() {
       <div className='max-w-screen-xl mx-auto py-4 px-4 lg:px-0'>
         <div className='flex items-center justify-between'>
           {/* Logo */}
-          <img src={logo} alt="logo" className='w-44' />
+          <Link to={'/'}>
+            <img src={logo} alt="logo" className='w-44' />
+          </Link>
 
           {/* Search bar */}
           <div className='hidden md:flex flex-1 max-w-3xl mx-8 relative'>
@@ -45,9 +48,15 @@ function Header() {
 
           {/* Menu bar */}
           <div className='flex items-center gap-x-6 text-2xl'>
-            <FiUser className='hover:text-skyText duration-200 cursor-pointer' />
-            <IconWithBadge icon={FiStar} count={0} />
-            <IconWithBadge icon={FiShoppingBag} count={0} />
+            <Link to={'/profile'}>
+              <FiUser className='hover:text-skyText duration-200 cursor-pointer' />
+            </Link>
+            <Link to={'/favorite'}>
+              <IconWithBadge icon={FiStar} count={0} />
+            </Link>
+            <Link to={'/cart'}>
+             <IconWithBadge icon={FiShoppingBag} count={0} />
+            </Link>
           </div>
         </div>
       </div>
