@@ -1,12 +1,14 @@
 import React from 'react'
 import Container from './Container'
 import { payment } from '../assets'
+import FooterTop from './FooterTop'
 
 function Footer() {
   return (
     <div className='mt-10'>
+      <FooterTop />
       <Container className='flex flex-col md:flex-row items-center gap-4 justify-between'>
-        <p>
+        <p>   
           @2024 E-commerce solution. All rights reserved.
         </p>
 
