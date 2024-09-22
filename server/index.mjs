@@ -3,7 +3,7 @@ const port = 8000;
 
 const app = express();
 
-app.get("/",(reg, res) => {
+app.get("/",(req, res) => {
   res.send("Hello World: from backend")
 });
 
