@@ -15,4 +15,4 @@ export const getData = async(endpoint:string) => {
     console.log('error while fetching data', error);
     throw error;
   }
-}
+}wfwerere
