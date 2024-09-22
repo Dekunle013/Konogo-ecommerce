@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { logo } from '../assets'
 import { IoClose, IoSearchOutline } from 'react-icons/io5'
 import { FiShoppingBag, FiStar, FiUser } from 'react-icons/fi'
 import { FaChevronDown } from 'react-icons/fa'
 import Container from './Container'
 import { Link } from 'react-router-dom'
+import {config} from '../../config';
+import { getData } from "../lib"
 
 const bottomNavigation = [
   { title: 'Home', link: '/' },
@@ -17,7 +19,20 @@ const bottomNavigation = [
 
 function Header() {
   const [searchText, setSearchText] = useState('')
+  const [categories, setCategories] = useState([])
 
+  useEffect(()=>{
+    const fetchData = async() => {
+      const endpoint = `${config?.baseUrl}/categories`;
+      try{
+        const data = await getData(endpoint);
+        setCategories(data)
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
+    fetchData();
+  },[])
   return (
     <header className='w-full bg-whiteText'>
       <div className='max-w-screen-xl mx-auto py-4 px-4 lg:px-0'>
