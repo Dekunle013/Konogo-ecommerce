@@ -1,12 +1,31 @@
-import express from 'express'
-const port = 8000;
+import express from 'express';
+import 'dotenv/config';
+import cors from 'cors';
+import { fileURLToPath } from 'url';
+import path from 'path';
+import { readdirSync } from 'fs';
 
 const app = express();
+const port = process.env.PORT || 8000;
 
-app.get("/",(req, res) => {
-  res.send("Hello World: from backend")
-});
+app.use(cors());
+app.use(express.json());
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+
+const routesPath = path.resolve(dirname, './routes');
+const routeFiles = readdirSync(routesPath);
+
+Promise.all(routeFiles.map(async (file) => {
+  const routeModule = await import(`./routes/${file}`);
+  app.use('/', routeModule.default);
+})).then(() => {
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(dirname, 'public', 'index.html'));
+  });
+
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
 });
