@@ -7,6 +7,7 @@ import Container from './Container'
 import { Link } from 'react-router-dom'
 import {config} from '../../config';
 import { getData } from "../lib"
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react"
 
 const bottomNavigation = [
   { title: 'Home', link: '/' },
@@ -78,9 +79,21 @@ function Header() {
       
       <nav className='w-full bg-darkText text-whiteText'>
         <Container className='py-2 max-w-4xl flex items-center gap-5 justify-between'>
-          <p className='flex items-center gap-1 cursor-pointer'>
-            Select Category <FaChevronDown />
-          </p>
+          <Menu>
+            <MenuButton className='inline-flex items-center gap-2 rounded-md border border-gray-400 hover:border-white py-1.5 px-3 font-semibold text-gray-300 hover:text-whiteText'>
+              Categories
+              <FaChevronDown className='text-base mt-1' />
+            </MenuButton>
+            <Transition>
+              <MenuItems>
+                {categories.map((item)=>(
+                  <MenuItem>
+                  
+                  </MenuItem>
+                ))}
+              </MenuItems>
+            </Transition>
+          </Menu>
           {bottomNavigation.map(({ title, link }) => (
             <NavLink key={title} title={title} link={link} />
           ))}
