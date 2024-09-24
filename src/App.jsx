@@ -1,13 +1,16 @@
-import Container from "./components/Container"
+import Banner from "./components/Banner"
+// import Container from "./components/Container"
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 
 function App() {
 
   return (
     <main>
-      <Container>
-        <p>Ecommerce</p>
-      </Container>
+      <Banner>
+
+      </Banner>
     </main>
   )
 }
