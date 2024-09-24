@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 import {config} from '../../config';
 import { getData } from "../lib"
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react"
+import { CategoryProps } from '../../type';
+import LinkButton from "./LinkButton"
 
 const bottomNavigation = [
   { title: 'Home', link: '/' },
@@ -84,11 +86,28 @@ function Header() {
               Categories
               <FaChevronDown className='text-base mt-1' />
             </MenuButton>
-            <Transition>
-              <MenuItems>
-                {categories.map((item)=>(
-                  <MenuItem>
-                  
+            <Transition
+              enter="transition duration-75 ease-out"
+              enterFrom="scale-95 opacity-0"
+              enterTo="scale-100 opacity-100"
+              leave="transition duration-100 ease-in"
+              leaveFrom="scale-100 opacity-100"
+              leaveTo="scale-95 opacity-0"
+            >
+               <MenuItems anchor='bottom end' className="absolute mt-2 w-52 origin-top-right rounded-xl border border-white/5 bg-black p-1 text-sm/6 text-gray-300 [--anchor-gap:var(--spacing-1)] focus:outline-none hover:text-white z-50">
+                {categories.map((item: CategoryProps) => (
+                  <MenuItem key={item?._id}>
+                      <Link
+                        to={`/category/${item?._base}`}
+                        className="flex w-full items-center gap-2 rounded-lg py-2 px-3 data-[focus]:bg-white/20 tracking-wide"
+                      >
+                        <img 
+                          src={item?.image} 
+                          alt={item?.name}
+                          className="w-6 h-6 rounded mr-2"
+                        />
+                        {item?.name}
+                      </Link>
                   </MenuItem>
                 ))}
               </MenuItems>
