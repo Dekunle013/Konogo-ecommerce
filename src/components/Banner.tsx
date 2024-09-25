@@ -51,8 +51,18 @@ const Banner = () => {
       className="flex flex-row p-4 max-w-screen-xl mx-auto lg:px-0 relative"
       >
         {categories.map((item:CategoryProps)=>(
-          <Link key={item?._id} to={`category/${item?._base}`}>
-           <img src={item?.image} alt="categoryImage" />
+          <Link 
+            key={item?._id} 
+            to={`category/${item?._base}`}
+            className="flex items-center gap-x-2 p-1 border border-gray-100 mr-1 flex-1 rounded-md hover:border-skyText hover:shadow-lg"
+          >
+
+           <img 
+            src={item?.image} 
+            alt="categoryImage" 
+            className="w-10 h-10 rounded-full object-cover"
+          />
+          <p className="text-sm font-semibold"> { item?.name } </p>
           </Link>
         ))}
     </Carousel>
