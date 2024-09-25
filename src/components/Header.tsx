@@ -37,7 +37,7 @@ function Header() {
     fetchData();
   },[])
   return (
-    <header className='w-full bg-whiteText'>
+    <header className='w-full bg-whiteText md:sticky md:top-0 z-50'>
       <div className='max-w-screen-xl mx-auto py-4 px-4 lg:px-0'>
         <div className='flex items-center justify-between'>
           {/* Logo */}
