@@ -5,6 +5,9 @@ import 'react-multi-carousel/lib/styles.css';
 import HomeBanner from "./components/HomeBanner";
 import Highlights from "./components/Highlights";
 import Categories from "./components/Categories";
+import ProductList from "./components/ProductList";
+// import DiscountedBanner from "./components/DiscountedBanner";
+// import Blog from "./components/Blog";
 
 
 function App() {
@@ -15,6 +18,9 @@ function App() {
       <HomeBanner />
       <Highlights />
       <Categories />
+      <ProductList />
+      {/* <DiscountedBanner /> */}
+      {/* <Blog /> */}
     </main>
   )
 }
