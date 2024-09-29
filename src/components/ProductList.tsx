@@ -2,6 +2,8 @@ import React from 'react'
 import Container from "./Container"
 import Title from "./Title"
 import { Link } from "react-router-dom"
+import Pagination from "./Pagination"
+
 
 const ProductList = () => {
   return (
@@ -15,6 +17,7 @@ const ProductList = () => {
         </div>
         <div className="w-full h-[1px] bg-gray-200 mt-2"/>
       </div>
+      <Pagination />
     </Container>
   )
 }
