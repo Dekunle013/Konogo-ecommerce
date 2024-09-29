@@ -128,7 +128,7 @@ export const highlightsProducts = [
     buttonTitle: "Shop Cellphone",
     image: "https://i.ibb.co/bLRNKGq/highlights-Two.webp",
     _base: "/category/cellPhones",
-    color: "#ffffff",
+    color: "#000000",
   },
   {
     _id: 3003,

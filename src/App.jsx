@@ -3,6 +3,7 @@ import Banner from "./components/Banner"
 // import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import HomeBanner from "./components/HomeBanner";
+import Highlights from "./components/Highlights";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <main>
       <Banner />
       <HomeBanner />
+      <Highlights />
     </main>
   )
 }
