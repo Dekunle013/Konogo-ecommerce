@@ -1,4 +1,5 @@
 import React from 'react'
+import { MdOutlineStarOutline } from 'react-icons/md';
 interface Props {
   item: ProductProps;
 }
@@ -12,6 +13,21 @@ const ProductCard = ({ item }: Props) => {
           save {percentage.toFixed(0)}%
         </span>
         <img src={item?.images[0]} alt="ProductImage" className="w-full h-full rounded-md object-cover group-hover:scale-110 duration-300"/>
+      </div>
+      <div className="flex flex-col gap-2 px-2 pb-2">
+        <h3 className="text-xs uppercase font-semibold text-lightText">
+          {item?.overView}
+        </h3>
+        <h2 className="text-lg font-bold line-clamp-2">
+          {item?.name}
+        </h2>
+        <div className="flex text-base text-lightText items-center">
+          <MdOutlineStarOutline />
+          <MdOutlineStarOutline />
+          <MdOutlineStarOutline />
+          <MdOutlineStarOutline />
+          <MdOutlineStarOutline />
+        </div>
       </div>
     </div>
   )
