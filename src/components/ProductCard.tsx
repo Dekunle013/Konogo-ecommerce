@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdOutlineStarOutline } from 'react-icons/md';
+import AddToCartButton from "./AddToCartButton";
 interface Props {
   item: ProductProps;
 }
@@ -28,6 +29,7 @@ const ProductCard = ({ item }: Props) => {
           <MdOutlineStarOutline />
           <MdOutlineStarOutline />
         </div>
+        <AddToCartButton />
       </div>
     </div>
   )
