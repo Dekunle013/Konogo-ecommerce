@@ -7,7 +7,7 @@ import Highlights from "./components/Highlights";
 import Categories from "./components/Categories";
 import ProductList from "./components/ProductList";
 import DiscountedBanner from "./components/DiscountedBanner";
-// import Blog from "./components/Blog";
+import Blog from "./components/Blog";
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <Categories />
       <ProductList />
       <DiscountedBanner />
-      {/* <Blog /> */}
+      <Blog />
     </main>
   )
 }
