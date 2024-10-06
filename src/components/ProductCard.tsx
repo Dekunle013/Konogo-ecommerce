@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MdOutlineStarOutline } from 'react-icons/md';
 import { Button, Dialog, Transition } from "@headlessui/react";
 import AddToCartButton from "./AddToCartButton";
+import ProductCardSideNav from "./ProductCardSideNav";
 
 interface ProductProps {
   name: string;
@@ -29,6 +30,7 @@ const ProductCard: React.FC<Props> = ({ item }) => {
           save {discountPercentage.toFixed(0)}%
         </span>
         <img src={item.images[0]} alt={item.name} className="w-full h-full rounded-md object-cover group-hover:scale-110 duration-300"/>
+        <ProductCardSideNav />
       </div>
       <div className="flex flex-col gap-2 px-2 pb-2">
         <h3 className="text-xs uppercase font-semibold text-lightText">
