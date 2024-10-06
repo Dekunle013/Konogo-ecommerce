@@ -6,7 +6,7 @@ import HomeBanner from "./components/HomeBanner";
 import Highlights from "./components/Highlights";
 import Categories from "./components/Categories";
 import ProductList from "./components/ProductList";
-// import DiscountedBanner from "./components/DiscountedBanner";
+import DiscountedBanner from "./components/DiscountedBanner";
 // import Blog from "./components/Blog";
 
 
@@ -19,7 +19,7 @@ function App() {
       <Highlights />
       <Categories />
       <ProductList />
-      {/* <DiscountedBanner /> */}
+      <DiscountedBanner />
       {/* <Blog /> */}
     </main>
   )
