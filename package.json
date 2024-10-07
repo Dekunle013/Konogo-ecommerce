@@ -13,6 +13,7 @@
     "@headlessui/react": "^2.1.8",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.15",
+    "@types/lodash": "^4.17.10",
     "cookie": "^0.7.2",
     "express": "^4.21.0",
     "lodash": "^4.17.21",
