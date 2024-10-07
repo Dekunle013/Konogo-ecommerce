@@ -3,6 +3,7 @@ import { MdOutlineStarOutline } from 'react-icons/md';
 import { Button, Dialog, Transition } from "@headlessui/react";
 import AddToCartButton from "./AddToCartButton";
 import ProductCardSideNav from "./ProductCardSideNav";
+import { useNavigate } from "react-router-dom";
 
 interface ProductProps {
   name: string;
@@ -20,8 +21,12 @@ const ProductCard: React.FC<Props> = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
+  const navigation = useNavigate();
 
   const discountPercentage = ((item.regularPrice - item.discountedPrice) / item.regularPrice) * 100;
+  const handleProduct = () => {
+    navigation(`/product/${item?._id}`)
+  }
 
   return (
     <div className="border border-gray-200 rounded-lg p-1 overflow-hidden hover:border-black duration-200 cursor-pointer">
@@ -29,7 +34,11 @@ const ProductCard: React.FC<Props> = ({ item }) => {
         <span onClick={openModal} className="bg-black text-skyText absolute left-0 top-0 w-16 text-xs text-center py-1 rounded-md font-semibold inline-block z-10">
           save {discountPercentage.toFixed(0)}%
         </span>
-        <img src={item.images[0]} alt={item.name} className="w-full h-full rounded-md object-cover group-hover:scale-110 duration-300"/>
+        <img 
+          onClick={handleProduct}
+          src={item.images[0]} 
+          alt={item.name} 
+          className="w-full h-full rounded-md object-cover group-hover:scale-110 duration-300"/>
         <ProductCardSideNav />
       </div>
       <div className="flex flex-col gap-2 px-2 pb-2">
