@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
 import Layout from './components/Layout.tsx'
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider, ScrollRestoration } from 'react-router-dom'
 // import Layout from './pages/Layout'
 import Product from './pages/Product.tsx'
 import Category from './pages/Category.tsx'
@@ -18,6 +18,7 @@ import NotFound from './pages/NotFound.tsx'
 const RouterLayout = () => {
   return (
     <Layout>
+      <ScrollRestoration />
       <Outlet />
     </Layout>
   )
